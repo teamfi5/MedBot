@@ -14,7 +14,7 @@ import os
 
 prj_path = r'D:\Huan\Project\KHDL'
 push_folder = 'push_data'
-EMBEDDING_MODEL_PATH = r'D:\Huan\Project\KHDL\model\ebmodel\bge-m3-ft-triplet'
+EMBEDDING_MODEL_PATH = r'D:\Huan\Project\KHDL\model\embedding_model\bge-m3-ft-triplet'
 
 # Tạo đối tượng TextLoader để load tài liệu
 class DataframeLoader(TextLoader):

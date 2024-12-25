@@ -1,29 +1,30 @@
-# Truy xuất kết quả từ vector database
-
-
-from langchain_community.embeddings import HuggingFaceBgeEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 import os
 import requests
+from transformers import logging
+logging.set_verbosity(logging.CRITICAL)
 
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
+file_path = os.path.abspath(__file__)
+PROJECT_PATH = os.path.dirname(file_path)
 
 class retrieve:
-    def __init__(self, vector_store_path = '', EMBEDDING_MODEL_PATH = '', prj_path = r'D:\Huan\Project\KHDL'):
+    def __init__(self, vector_store_name = 'vector_store', embedding_model_name = 'bge-m3-ft-triplet'):
         print('Load embedding model...', end = '  ')
-        self.embeddings = HuggingFaceBgeEmbeddings(model_name=EMBEDDING_MODEL_PATH)
+        EMBEDDING_MODEL_PATH = PROJECT_PATH + '/model/embedding_model/' + embedding_model_name
+        self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_PATH)
         print('Done')
         
         print('Load vector store...', end = '  ')
         self.vector_store = FAISS.load_local(
-            vector_store_path, self.embeddings, allow_dangerous_deserialization=True
+            PROJECT_PATH + f'/{vector_store_name}', self.embeddings, allow_dangerous_deserialization=True
         )
         print('Done')
         
-        self.list_id = set((i.split('-')[0], i) for i in os.listdir(prj_path + '/pdf'))
+        self.list_id = set((i.split('-')[0], i) for i in os.listdir(PROJECT_PATH + '/pdf'))
         
     # Trả về file pdf có chứa dữ liệu trong doc 
-    def search_doc_pdf(self, doc, pdf_path = r'D:\Huan\Project\KHDL\pdf'):
+    def search_doc_pdf(self, doc, pdf_path = PROJECT_PATH + r'\pdf'):
         page_id = str(doc.metadata['source'])
         if page_id.split('-')[0] == 'n_wk':
             return (pdf_path + '/' + page_id, page_id[3:-4].replace('_', ' '))
@@ -61,7 +62,7 @@ class retrieve:
             return None
     
     # Tìm kiếm top_k tài liệu tương đồng nhất được tính bằng similarity cosin
-    def similarity_search(self, query, top_k = 10):
+    def similarity_search(self, query, top_k = 8):
         return self.vector_store.similarity_search(query=query, k = top_k)
         
     
