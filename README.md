@@ -5,7 +5,6 @@ MedBot là một ứng dụng chatbot sử dụng mô hình học sâu để tr�
 ### 1. Clone repository về máy:
 
 ```bash
-Sao chép mã
 git clone https://github.com/teamfi5/MedBot
 ```
 ### 2. Tải mô hình và dữ liệu cần thiết:
