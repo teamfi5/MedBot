@@ -10,10 +10,10 @@ git clone https://github.com/teamfi5/MedBot
 ```
 ### 2. Tải mô hình và dữ liệu cần thiết:
 
-Bạn có thể tải mô hình và dữ liệu cần thiết tại [Đây](link-to-model).
+Bạn có thể tải mô hình và dữ liệu cần thiết tại [Đây](https://drive.google.com/drive/folders/1m6Fvrng_7A3EnCEw5fDfU-gm1Ek_YAa8?usp=drive_link).
 Hoặc, nếu muốn tinh chỉnh lại mô hình, hãy làm theo các bước sau:
 #### Bước 1: Tải hoặc tạo dữ liệu huấn luyện
-Tải thư mục finetune_data từ [Đây](link) và đặt nó vào thư mục dự án của bạn.
+Tải thư mục finetune_data từ [Đây](https://drive.google.com/drive/folders/1flZiE7zGSTTW63ZBzhmMVe65R7h-o8PN?usp=sharing) và đặt nó vào thư mục dự án của bạn.
 
 Hoặc, tự tạo dữ liệu huấn luyện theo cấu trúc và định dạng mẫu sau:
 Cấu trúc:
@@ -56,9 +56,9 @@ Chạy file test.ipynb để kiểm tra hoạt động của hệ thống sau kh
 Sau khi hoàn tất các bước trên, bạn có thể chạy ứng dụng với lệnh sau:
 
 ```bash
-python app.py
+uvicorn app:app --reload
 ```
-Truy cập ứng dụng qua trình duyệt tại http://127.0.0.1:5000.
+Truy cập ứng dụng qua trình duyệt tại [http://127.0.0.1:5000](http://127.0.0.1:8000/).
 
 
 
