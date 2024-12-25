@@ -57,7 +57,7 @@ Sau khi hoàn tất các bước trên, bạn có thể chạy ứng dụng vớ
 ```bash
 uvicorn app:app --reload
 ```
-Truy cập ứng dụng qua trình duyệt tại [http://127.0.0.1:5000](http://127.0.0.1:8000/).
+Truy cập ứng dụng qua trình duyệt tại [http://127.0.0.1:8000](http://127.0.0.1:8000/).
 
 
 
