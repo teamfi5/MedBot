@@ -1,6 +1,11 @@
 # MedBot
 MedBot là một ứng dụng chatbot sử dụng kĩ thuật RAG retrieve để truy xuất tài liệu và LLM để trả lời các câu hỏi về y tế. Dưới đây là hướng dẫn cài đặt và sử dụng ứng dụng này.
 
+# Link github
+```bash
+https://github.com/teamfi5/MedBot
+```
+
 ## Kiến trúc hệ thống
 
 <a href="https://ibb.co/Jm4rkV4"><img src="https://i.ibb.co/QpRYmLR/ktht.jpg" alt="ktht" border="0" /></a>
