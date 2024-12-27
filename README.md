@@ -23,6 +23,8 @@ Kết quả cho thấy context đúng có tỉ lệ 92.86% xuất hiện trong 1
 ### Xếp hạng lại
 MRR@10 = 0.8032: Đã cải thiện so với bộ truy xuất ban đầu
 
+![](https://drive.google.com/file/d/1ngpt1qqe29o15pV9QnX-KYWoQVsopeQ2/view?usp=drive_link)
+
 <a href="https://ibb.co/27FhpGs"><img src="https://i.ibb.co/fYXFTjn/rrl.jpg" alt="rrl" border="0" /></a>
 
 ### Sinh văn bản
