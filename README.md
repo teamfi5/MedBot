@@ -86,6 +86,8 @@ transformers==4.47.1
 trl==0.13.0
 uvicorn==0.34.0
 ```
+Phiên bản python: 3.12.8
+
 ### 2. Tải mô hình và dữ liệu cần thiết:
 
 Bạn có thể tải mô hình và dữ liệu cần thiết tại [Đây](https://drive.google.com/drive/folders/1m6Fvrng_7A3EnCEw5fDfU-gm1Ek_YAa8?usp=drive_link).
