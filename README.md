@@ -3,7 +3,7 @@ MedBot là một ứng dụng chatbot sử dụng kĩ thuật RAG retrieve để
 
 ## Kiến trúc hệ thống
 
-![](https://ibb.co/Jm4rkV4)
+![Ảnh kiến trúc hệ thống](https://ibb.co/Jm4rkV4)
 
 ## Kết quả thực nghiệm
 ### Truy xuất
@@ -17,10 +17,10 @@ Kết quả cho thấy context đúng có tỉ lệ 92.86% xuất hiện trong 1
 ### Xếp hạng lại
 MRR@10 = 0.8032: Đã cải thiện so với bộ truy xuất ban đầu
 
-![](https://ibb.co/27FhpGs)
+![Kết quả huấn luyện rerank](https://ibb.co/27FhpGs)
 
 ### Sinh văn bản
-![](https://ibb.co/gdNvKHM)
+![Kết quả huấn luyện LLM](https://ibb.co/gdNvKHM)
 
 Thử nghiệm:
 ```bash
