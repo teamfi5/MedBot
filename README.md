@@ -19,6 +19,8 @@ MRR@10 = 0.8032: Đã cải thiện so với bộ truy xuất ban đầu
 
 ![Kết quả huấn luyện rerank](https://ibb.co/27FhpGs)
 
+<a href="https://ibb.co/27FhpGs"><img src="https://i.ibb.co/fYXFTjn/rrl.jpg" alt="rrl" border="0" /></a>
+
 ### Sinh văn bản
 ![Kết quả huấn luyện LLM](https://ibb.co/gdNvKHM)
 
