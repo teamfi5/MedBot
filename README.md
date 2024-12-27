@@ -12,6 +12,7 @@ MedBot là một ứng dụng chatbot sử dụng kĩ thuật RAG retrieve để
 |-------------|---------|
 | MRR@10      | 0.7762  |
 | Recall@10   | 0.9286  |
+
 Kết quả cho thấy context đúng có tỉ lệ 92.86% xuất hiện trong 10 contexts đầu tiên và trung bình xuất hiện ở vị trí 1 / 0.7762 ≈ 1.3 (Vị trí cao trong tập kết quả truy xuất)
 
 ### Xếp hạng lại
