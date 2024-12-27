@@ -1,5 +1,46 @@
 # MedBot
-MedBot là một ứng dụng chatbot sử dụng mô hình học sâu để trả lời các câu hỏi về y tế. Dưới đây là hướng dẫn cài đặt và sử dụng ứng dụng này.
+MedBot là một ứng dụng chatbot sử dụng kĩ thuật RAG retrieve để truy xuất tài liệu và LLM để trả lời các câu hỏi về y tế. Dưới đây là hướng dẫn cài đặt và sử dụng ứng dụng này.
+
+## Kiến trúc hệ thống
+
+![](https://ibb.co/Jm4rkV4)
+
+## Kết quả thực nghiệm
+### Truy xuất
+
+| Metric      | Value   |
+|-------------|---------|
+| MRR@10      | 0.7762  |
+| Recall@10   | 0.9286  |
+Kết quả cho thấy context đúng có tỉ lệ 92.86% xuất hiện trong 10 contexts đầu tiên và trung bình xuất hiện ở vị trí 1 / 0.7762 ≈ 1.3 (Vị trí cao trong tập kết quả truy xuất)
+
+### Xếp hạng lại
+MRR@10 = 0.8032: Đã cải thiện so với bộ truy xuất ban đầu
+
+![](https://ibb.co/27FhpGs)
+
+### Sinh văn bản
+![](https://ibb.co/gdNvKHM)
+
+Thử nghiệm:
+```bash
+context = """
+Dấu hiệu và triệu chứng \nNhững dấu hiệu và triệu chứng có thể là của ung thư phổi bao gồm:\nTriệu chứng về đường hô hấp: ho, ho ra máu, thở khò khè, khó thở\nTriệu chứng toàn thân: sụt cân, mệt mỏi, sốt, móng tay dùi trống\nTriệu chứng do ung thư chèn ép nhiều sang các cơ quan kề bên: đau ngực, đau xương, tắc nghẽn tĩnh mạch chủ trên, khó nuốt\nNếu ung thư phát triển ở đường thở, nó có thể chặn dòng khí lưu thông, gây ra chứng khó thở. Sự cản trở này có thể dẫn tới việc tích lũy chất bài tiết phía sau chỗ tắc, qua đó mở đường cho viêm phổi.'
+Ung thư phổi là căn bệnh trong đó xuất hiện một khối u ác tính được mô tả qua sự tăng sinh tế bào không thể kiểm soát trong các mô phổi. Nếu người bệnh không được điều trị, sự tăng trưởng tế bào  này có thể lan ra ngoài phổi  đến các mô hoặc bộ phận khác của cơ thể, quá trình này gọi là di căn. Hầu hết các loại ung thư khởi nguồn từ trong phổi (ung thư phổi nguyên phát) là ung thư biểu mô,. Ung thư phổi được chia làm hai loại chính là ung thư phổi tế bào nhỏ (SCLC) và ung thư phổi không phải tế bào nhỏ (NSCLC). Triệu chứng phổ biến nhất của căn bệnh này là ho (bao gồm cả ho ra máu), sụt cân, khó thở, và đau ngực.',
+Phần lớn các triệu chứng của ung thư phổi (chán ăn, sụt cân, sốt, mệt mỏi) là không đặc biệt. Đối với nhiều người, vào thời điểm họ phát hiện ra những dấu hiệu bệnh tật và đi tìm sự chăm sóc y tế, khối u đã lan ra ngoài địa điểm khởi phát. Các triệu chứng có thể báo hiệu quá trình di căn đã xuất hiện bao gồm sụt cân, đau xương và các triệu chứng về thần kinh (đau đầu, ngất xỉu, co giật, yếu chi). Những địa điểm khối u lan sang thường gặp đó là não, xương, tuyến thượng thận, lá phổi còn lại, gan, màng ngoài tim, và thận. Khoảng 10% số ca ung thư phổi không thấy những triệu chứng khi chẩn đoán, những trường hợp này bệnh tình cờ phát hiện nhờ việc chụp X quang ngực định kỳ.\n Nguyên nhân'"""
+
+query = """Triệu chứng của ung thư phổi?"""
+
+from generation import QAmodel
+Bot = QAmodel()
+
+print(Bot.generation(query, context)
+```
+Kết quả:
+```bash
+Triệu chứng phổ biến nhất của ung thư phổi là ho, sụt cân, sốt, khó thở, và đau ngực. Ngoài ra, các triệu chứng có thể bao gồm sụt cân, đau xương, và các triệu chứng về thần kinh. Những địa điểm khối u lan sang thường gặp là não, xương, tuyến thượng thận, lá phổi còn lại, gan, màng ngoài tim, và thận. Khoảng 10% số ca ung thư phổi không thấy những triệu chứng khi chẩn đoán. Chẩn đoán ung thư phổi thường bắt đầu bằng chụp X quang ngực định kỳ. 
+```
+
 
 ## Hướng dẫn cài đặt
 ### 1. Clone repository về máy:
